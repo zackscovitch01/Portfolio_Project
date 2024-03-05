@@ -174,6 +174,14 @@ p {
   margin-right: auto;
 }
 
+.section-title {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.bg-grey {
+  background: var(--clr-grey-10);
+}
 /*
 =============== 
 Navbar
@@ -213,6 +221,18 @@ Navbar
   justify-self: end;
 }
 
+/* fixed navbar */
+
+.navbar-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--clr-white);
+  z-index: 2;
+  box-shadow: var(--light-shadow);
+}
+
 @media screen and (min-width:768px){
   .nav {
     background: var(--clr-primary-10);
@@ -248,18 +268,6 @@ Navbar
     grid-template-columns: auto 1fr;
     align-items: center;
    }
-}
-
-/* fixed navbar */
-
-.navbar-fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  color: var(--clr-white);
-  z-index: 2;
-  box-shadow: var(--light-shadow);
 }
 
 /*
@@ -386,24 +394,24 @@ Hero
     grid-template-columns: 1fr 1fr;
   }
 
-  .hero-photo {
-    max-width: 25rem;
-    max-height: 30rem;
-    object-fit: cover;
-    border-radius: var(--radius);
-    position: relative;
-  }
-
-  .hero-img::before {
+  .hero-img::before, 
+  .about-img::before {
     content: "";
     position: absolute;
     width: 100%;
     height: 100%;
     border: 0.25rem solid var(--clr-primary-5);
     top: 2rem;
-    left: 2rem;
+    right: -2rem;
     border-radius: var(--radius);
   }
+}
+.hero-photo {
+  max-width: 25rem;
+  max-height: 30rem;
+  object-fit: cover;
+  border-radius: var(--radius);
+  position: relative;
 }
 
 /*
@@ -412,7 +420,41 @@ About
 ===============
 */
 /* section title added to globals */
+.about-title {
+  text-align: left;
+  margin-bottom: 2rem;
+}
 
+.about-title .underline {
+  margin-left: 0;
+}
+
+.about-center {
+  display: grid;
+  gap: 3rem 2rem;
+}
+
+.about-img {
+  justify-self: center;
+}
+
+@media screen and (min-width: 992px) {
+  .about-center {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about-img {
+    position: relative;
+  }
+
+  .about-img::before {
+    left: -2rem;
+  }
+
+  .about-info {
+     align-self: center;
+  }
+}
 /*
 =============== 
 Services
@@ -420,6 +462,43 @@ Services
 */
 /* small screen layout setup */
 /* bg-grey in globals */
+
+.service {
+  background: var(--clr-white);
+  padding: 3rem 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: var(--radius);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.service-icon {
+  font-size : 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.service .underline {
+  width: 3rem;
+  height: 0.12rem;
+  transition: var(--transition);
+}
+
+.service p {
+  transition: var(--transition);
+}
+
+.service:hover {
+  background: var(--clr-primary-5);
+  color: var(--clr-white);
+}
+
+.service:hover p{
+  color: var(--clr-white);
+}
+
+.service:hover .underline {
+  background: var(--clr-white);
+}
 
 /*
 =============== 
